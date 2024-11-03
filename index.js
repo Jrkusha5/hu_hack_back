@@ -16,6 +16,10 @@ app.use(express.urlencoded({ extended: true })); // for parsing application/x-ww
 // Static folder for uploaded images
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
+ app.get('/', (req,res)=>{
+    res.send('api is working');
+ })
+
 // Connect to MongoDB
 mongoose.set('strictQuery', false)
 const connectDB =async()=>{
