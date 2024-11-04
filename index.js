@@ -2,6 +2,7 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const authRoutes = require('./routes/authRoutes');
 //const eventRoutes = require('./routes/eventRoutes');
 const userRoutes = require('./routes/userRoutes');
@@ -10,7 +11,8 @@ const path = require('path');
 const app = express();
 
 // Middleware
-app.use(express.json()); // for parsing application/json
+app.use(express.json());
+app.use(cors()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 // Static folder for uploaded images
