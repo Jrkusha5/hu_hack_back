@@ -1,5 +1,5 @@
 // controllers/postController.js
-const Post = require('../models/Event');
+const Event = require('../models/Event');
 const cloudinary = require('../utils/cloudinary');
 const fs = require('fs');
 
@@ -36,8 +36,8 @@ exports.createEvent = async (req, res) => {
 // Get All Posts Controller
 exports.getEvents = async (req, res) => {
   try {
-    const posts = await Post.find();
-    res.status(200).json(posts);
+    const posts = await Event.find();
+    res.status(200).json(events);
   } catch (error) {
     res.status(500).json({ message: 'Error fetching posts', error });
   }
