@@ -1,20 +1,13 @@
-// const express = require('express');
-// const multer = require('multer'); // To handle file uploads
-// const eventController = require('../controllers/EventController'); // Adjust the path as needed
 
-// const router = express.Router();
+const express = require('express');
+const router = express.Router();
+const upload = require('../utils/multer');
+const eventController = require('../controllers/EcentController');
 
-// // Set up multer for file uploads
-// const storage = multer.diskStorage({
-//     destination: (req, file, cb) => {
-//         cb(null, 'uploads/'); // Set the destination directory for uploaded files
-//     },
-//     filename: (req, file, cb) => {
-//         cb(null, Date.now() + path.extname(file.originalname)); // Append the current timestamp to the file name
-//     }
-// });
-// const upload = multer({ storage });
+// Route for creating a new post
+router.post('/create', upload.single('image'), eventController.createPost);
 
-// // Define the route to create an event
-// router.post('/', upload.single('image'), eventController.createEvent); // Ensure the path here is '/'
-// module.exports = router;
+// Route for getting all posts
+router.get('/events', eventController.getPosts);
+
+module.exports = router;
