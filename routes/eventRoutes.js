@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const upload = require('../utils/multer');
-const eventController = require('../controllers/EcentController');
+const eventController = require('../controllers/EventController');
 
 // Route for creating a new post
 router.post('/create', upload.single('image'), eventController.createPost);
