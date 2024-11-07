@@ -8,6 +8,6 @@ const eventController = require('../controllers/EventController');
 router.post('/create', upload.single('image'), eventController.createEvent);
 
 // Route for getting all posts
-router.get('/events', eventController.getEvents);
+router.get('/posts', eventController.getEvents);
 
 module.exports = router;
