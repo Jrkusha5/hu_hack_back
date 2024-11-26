@@ -10,6 +10,16 @@ const UserController = {
             return res.status(500).json({ message: 'Internal server error', error: error.message });
         }
     },
+     // Get user count
+     getUserCount: async (req, res) => {
+        try {
+            const count = await User.countDocuments(); // Count all users in the database
+            return res.status(200).json({ count }); // Respond with the count
+        } catch (error) {
+            console.error("Error retrieving user count:", error);
+            return res.status(500).json({ message: 'Internal server error', error: error.message });
+        }
+    },
 };
 
 module.exports = UserController;
